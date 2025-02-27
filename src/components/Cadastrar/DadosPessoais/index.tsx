@@ -22,6 +22,23 @@ const DadosPessoais: React.FC<DadosSecretariaProps> = ({ formik, roles, editar, 
   const [cursos, setCursos] = useState<ICurso[]>([]);
   const [searchTerm, setSearchTerm] = useState("");
 
+  const formatCPF = (input: HTMLInputElement) => {
+    let value = input.value.replace(/\D/g, ""); // Remove tudo que não for número
+    value = value.substring(0, 11); // Limita a 11 dígitos numéricos
+    value = value.replace(/(\d{3})(\d)/, "$1.$2");
+    value = value.replace(/(\d{3})(\d)/, "$1.$2");
+    value = value.replace(/(\d{3})(\d{1,2})$/, "$1-$2");
+    input.value = value;
+  };
+  
+  const formatTelefone = (input: HTMLInputElement) => {
+    let value = input.value.replace(/\D/g, ""); // Remove tudo que não for número
+    value = value.substring(0, 11); // Limita a 11 dígitos numéricos
+    value = value.replace(/(\d{2})(\d)/, "($1) $2");
+    value = value.replace(/(\d{5})(\d)/, "$1-$2");
+    input.value = value;
+  };
+
   useEffect(() => {
     mutate();
   }, []);
@@ -107,7 +124,7 @@ const DadosPessoais: React.FC<DadosSecretariaProps> = ({ formik, roles, editar, 
       ) : (
         <div className={style.container__ContainerForm_form}>
           <div className={style.formGroup}>
-            <label htmlFor="nome">Nome Completo</label>
+            <label htmlFor="nome">Nome Completo<span color="red">*</span></label>
             <div className={style.inputWrapper}>
               <input
                 className={style.container__ContainerForm_form_input}
@@ -131,7 +148,7 @@ const DadosPessoais: React.FC<DadosSecretariaProps> = ({ formik, roles, editar, 
       {/* Campos comuns a todos os tipos de usuários */}
       <div className={style.container__ContainerForm_form_threeContainer}>
         <div className={style.formGroup}>
-          <label htmlFor="email">Email</label>
+          <label htmlFor="email">E-mail<span color="red">*</span></label>
           <div className={style.inputWrapper}>
             <input
               className={style.container__ContainerForm_form_input}
@@ -153,7 +170,7 @@ const DadosPessoais: React.FC<DadosSecretariaProps> = ({ formik, roles, editar, 
         {!isSolicitacaoPerfil ? (
           <>
             <div className={style.formGroup}>
-              <label htmlFor="senha">Senha</label>
+              <label htmlFor="senha">Senha<span color="red">*</span></label>
               <div className={style.inputWrapper}>
                 <input
                   className={style.container__ContainerForm_form_input}
@@ -174,7 +191,7 @@ const DadosPessoais: React.FC<DadosSecretariaProps> = ({ formik, roles, editar, 
             </div>
 
             <div className={style.formGroup}>
-              <label htmlFor="confirmarSenha">Confirmar Senha</label>
+              <label htmlFor="confirmarSenha">Confirmar Senha<span color="red">*</span></label>
               <div className={style.inputWrapper}>
                 <input
                   className={style.container__ContainerForm_form_input}
@@ -197,7 +214,7 @@ const DadosPessoais: React.FC<DadosSecretariaProps> = ({ formik, roles, editar, 
         ) : ""}
 
         <div className={style.formGroup}>
-          <label htmlFor="nomeSocial">Nome Social</label>
+          <label htmlFor="nomeSocial">Nome Social<span color="red">*</span></label>
           <div className={style.inputWrapper}>
             <input
               className={style.container__ContainerForm_form_input}
@@ -216,7 +233,7 @@ const DadosPessoais: React.FC<DadosSecretariaProps> = ({ formik, roles, editar, 
         </div>
 
         <div className={style.formGroup}>
-          <label htmlFor="cpf">CPF</label>
+          <label htmlFor="cpf">CPF<span color="red">*</span></label>
           <div className={style.inputWrapper}>
             <input
               className={style.container__ContainerForm_form_input}
@@ -228,6 +245,7 @@ const DadosPessoais: React.FC<DadosSecretariaProps> = ({ formik, roles, editar, 
               value={formik.values.cpf}
               required
               disabled={!editar}
+              onInput={(e: React.FormEvent<HTMLInputElement>) => formatCPF(e.currentTarget)}
             />
             {formik.touched.cpf && formik.errors.cpf && (
               <span className={style.form__errorTooltip}>{formik.errors.cpf}</span>
@@ -237,7 +255,7 @@ const DadosPessoais: React.FC<DadosSecretariaProps> = ({ formik, roles, editar, 
 
         {formik.values.tipoUsuario === "default" ? (
           <div className={style.formGroup}>
-            <label htmlFor="telefone">Telefone</label>
+            <label htmlFor="telefone">Telefone<span color="red">*</span></label>
             <div className={style.inputWrapper}>
               <input
                 className={style.container__ContainerForm_form_input}
@@ -249,6 +267,7 @@ const DadosPessoais: React.FC<DadosSecretariaProps> = ({ formik, roles, editar, 
                 value={formik.values.telefone}
                 required
                 disabled={!editar}
+                onInput={(e: React.FormEvent<HTMLInputElement>) => formatTelefone(e.currentTarget)}
               />
               {formik.touched.telefone && formik.errors.telefone && (
                 <span className={style.form__errorTooltip}>{formik.errors.telefone}</span>
