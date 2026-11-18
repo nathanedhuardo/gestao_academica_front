@@ -99,7 +99,7 @@ export default function Layout({ children, layoutConfig }: LayoutProps) {
 
       const response = await generica({
         metodo: "get",
-        uri: "/auth/notificacoes/historico",
+        uri: "/notificacoes/historico",
         params: { page: 0, size: 10 },
       });
 
@@ -124,7 +124,7 @@ export default function Layout({ children, layoutConfig }: LayoutProps) {
     try {
       await generica({
         metodo: "delete",
-        uri: "/auth/notificacoes/limpar-todas",
+        uri: "/notificacoes/limpar-todas",
       });
 
       setNotifications([]);

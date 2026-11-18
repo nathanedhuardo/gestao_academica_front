@@ -78,7 +78,7 @@ const cadastro = () => {
     try {
       const response = await generica({
         metodo: "get",
-        uri: "/prae/tipo-atendimento",
+        uri: "/tipo-atendimento",
         params: {},
       });
 
@@ -100,7 +100,7 @@ const cadastro = () => {
     try {
       const response = await generica({
         metodo: "get",
-        uri: "/prae/cronograma",
+        uri: "/cronograma",
         params: {},
       });
 
@@ -271,7 +271,7 @@ const cadastro = () => {
           if (cronogramaParaRemover) {
             await generica({
               metodo: "delete",
-              uri: `/prae/${estrutura.uri}/${cronogramaParaRemover.id}`,
+              uri: `/${estrutura.uri}/${cronogramaParaRemover.id}`,
               params: {},
             });
           }
@@ -286,7 +286,7 @@ const cadastro = () => {
 
           await generica({
             metodo: "post",
-            uri: `/prae/${estrutura.uri}`,
+            uri: `/${estrutura.uri}`,
             params: {},
             data: payload,
           });
@@ -300,7 +300,7 @@ const cadastro = () => {
 
         await generica({
           metodo: "post",
-          uri: `/prae/${estrutura.uri}`,
+          uri: `/${estrutura.uri}`,
           params: {},
           data: payloadData,
         });
@@ -325,7 +325,7 @@ const cadastro = () => {
     try {
       const response = await generica({
         metodo: "get",
-        uri: `/prae/${estrutura.uri}/${item}`,
+        uri: `/${estrutura.uri}/${item}`,
         params: {},
       });
 

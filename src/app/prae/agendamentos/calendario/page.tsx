@@ -86,7 +86,7 @@ const PageLista = () => {
     try {
       const body = {
         metodo: "get",
-        uri: "/prae/tipo-atendimento",
+        uri: "/tipo-atendimento",
         params: { size: 100, page: 0 },
         data: {},
       };
@@ -106,7 +106,7 @@ const PageLista = () => {
     try {
       const body = {
         metodo: "get",
-        uri: `/prae/cronograma`,
+        uri: `/cronograma`,
         params: { tipoAtendimentoId: tipoId },
         data: {},
       };
@@ -177,7 +177,7 @@ const PageLista = () => {
     try {
       const body = {
         metodo: "post",
-        uri: `/prae/agendamento`,
+        uri: `/agendamento`,
         params: {},
         data: {
           vagaId: slot.id,
@@ -212,7 +212,7 @@ const PageLista = () => {
     try {
       const body = {
         metodo: "post",
-        uri: `/prae/agendamento/${slot.id}/cancelar`,
+        uri: `/agendamento/${slot.id}/cancelar`,
         params: {},
         data: {},
       };

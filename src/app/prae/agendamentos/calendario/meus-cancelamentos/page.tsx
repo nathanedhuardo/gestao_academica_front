@@ -74,7 +74,7 @@ const PageLista = () => {
     try {
       let body = {
         metodo: 'get',
-        uri: '/prae/agendamento/' + estrutura.uri +
+        uri: '/agendamento/' + estrutura.uri +
           (isProfissional ? '/profissional' : '/estudante'),
         //+ '/page',
         params: params != null ? params : { size: 10, page: 0 },
@@ -131,7 +131,7 @@ const PageLista = () => {
       try {
         const body = {
           metodo: 'post',
-          uri: '/prae/' + estrutura.uri + '/' + item.id + '/cancelar',
+          uri: '/' + estrutura.uri + '/' + item.id + '/cancelar',
           params: {},
           data: {}
         };

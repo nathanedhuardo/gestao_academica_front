@@ -432,7 +432,7 @@ const cadastro = () => {
     try {
       let body = {
         metodo: "get",
-        uri: "/prae/estudantes",
+        uri: "/estudantes",
         params: params != null ? params : { size: 10, page: 0 },
         data: {},
       };
@@ -455,7 +455,7 @@ const cadastro = () => {
     try {
       let body = {
         metodo: "get",
-        uri: `/prae/estudantes/${estudanteId}`,
+        uri: `/estudantes/${estudanteId}`,
         data: {},
       };
 
@@ -482,7 +482,7 @@ const cadastro = () => {
     try {
       const response = await generica({
         metodo: "get",
-        uri: `/prae/pagamento/beneficio/${beneficioId}`,
+        uri: `/pagamento/beneficio/${beneficioId}`,
         data: {},
       });
 
@@ -522,7 +522,7 @@ const cadastro = () => {
     try {
       let body = {
         metodo: "get",
-        uri: "/prae/tipo-beneficio",
+        uri: "/tipo-beneficio",
         params: params != null ? params : { size: 200, page: 0 },
         data: {},
       };
@@ -550,7 +550,7 @@ const cadastro = () => {
       const body = {
         metodo: `${isEditMode ? "patch" : "post"}`,
         uri:
-          "/prae/" + `${isEditMode ? estrutura.uri + "/" + id : estrutura.uri}`,
+          "/" + `${isEditMode ? estrutura.uri + "/" + id : estrutura.uri}`,
         params: {},
         data: dataToSend,
       };
@@ -602,7 +602,7 @@ const cadastro = () => {
     try {
       const body = {
         metodo: "get",
-        uri: "/prae/" + estrutura.uri + "/" + item,
+        uri: "/" + estrutura.uri + "/" + item,
         params: {},
         data: item,
       };
@@ -647,7 +647,7 @@ const cadastro = () => {
   const buscarTermo = async (id: number) => {
     const responseDocumentos = await generica({
       metodo: "get",
-      uri: `/prae/${estrutura.uri}/${id}/termo`,
+      uri: `/${estrutura.uri}/${id}/termo`,
       params: {},
       data: {},
     });
@@ -719,7 +719,7 @@ const cadastro = () => {
 
       const body = {
         metodo: "patch",
-        uri: `/prae/${estrutura.uri}/${id}/cancelar`, 
+        uri: `/${estrutura.uri}/${id}/cancelar`, 
         params: {},
         data: dataToSend,
       };

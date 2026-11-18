@@ -164,7 +164,7 @@ const PageConfirmarPagamento = () => {
     try {
       const body = {
         metodo: "post",
-        uri: "/prae/pagamento",
+        uri: "/pagamento",
         data: pagamentosSelecionados.map((p) => formatarDados(p)),
       };
 

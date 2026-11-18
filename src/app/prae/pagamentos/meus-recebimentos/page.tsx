@@ -65,7 +65,7 @@ const PageLista = () => {
         try {
             const body = {
                 metodo: 'get',
-                uri: '/prae/estudantes/current',
+                uri: '/estudantes/current',
                 params: {},
                 data: {}
             };
@@ -90,7 +90,7 @@ const PageLista = () => {
         try {
             let body = {
                 metodo: 'get',
-                uri: '/prae/pagamento/estudante/' + estudadeId, // ✅ AQUI ESTÁ CORRETO AGORA
+                uri: '/pagamento/estudante/' + estudadeId, // ✅ AQUI ESTÁ CORRETO AGORA
                 params: params != null ? params : { size: 10, page: 0 },
                 data: {}
             };
@@ -146,7 +146,7 @@ const PageLista = () => {
             try {
                 const body = {
                     metodo: 'delete',
-                    uri: '/prae/' + estrutura.uri + '/' + item.id,
+                    uri: '/' + estrutura.uri + '/' + item.id,
                     params: {},
                     data: {}
                 };

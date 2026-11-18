@@ -135,7 +135,7 @@ const cadastro = () => {
     try {
       let body = {
         metodo: 'get',
-        uri: '/auth/usuario/current',
+        uri: '/usuario/current',
         params: params != null ? params : { size: 25, page: 0 },
         data: {}
       };
@@ -201,7 +201,7 @@ const cadastro = () => {
       const dataToSend = transformarDados(item);
       const body = {
         metodo: `${isEditMode ? "patch" : "post"}`,
-        uri: "/prae/" + `${estrutura.uri}`,
+        uri: "/" + `${estrutura.uri}`,
         params: {},
         data: dataToSend,
       };
@@ -240,7 +240,7 @@ const cadastro = () => {
     try {
       const body = {
         metodo: "get",
-        uri: `/prae/${estrutura.uri}/${item}`,
+        uri: `/${estrutura.uri}/${item}`,
         params: {},
         data: item,
       };

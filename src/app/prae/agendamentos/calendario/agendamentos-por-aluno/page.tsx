@@ -72,7 +72,7 @@ const PageLista = () => {
       try {
         const body = {
           metodo: 'get',
-          uri: '/prae/estudantes',
+          uri: '/estudantes',
           params: {},
           data: {}
         };
@@ -106,7 +106,7 @@ const PageLista = () => {
     try {
       let body = {
         metodo: 'get',
-        uri: `/prae/agendamento/estudante/${idAluno}`,
+        uri: `/agendamento/estudante/${idAluno}`,
         params: {},
         data: {}
       }
@@ -178,7 +178,7 @@ const PageLista = () => {
       try {
         const body = {
           metodo: 'post',
-          uri: '/prae/' + estrutura.uri + '/' + item.id + '/cancelar',
+          uri: '/' + estrutura.uri + '/' + item.id + '/cancelar',
           params: {},
           data: {}
         };

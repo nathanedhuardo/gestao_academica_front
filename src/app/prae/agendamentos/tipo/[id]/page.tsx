@@ -173,7 +173,7 @@ const CadastroTipoAtendimento = () => {
 
       const body = {
         metodo: `${isEditMode ? "patch" : "post"}`,
-        uri: "/prae/" + `${isEditMode ? estrutura.uri + "/" + id : estrutura.uri}`,
+        uri: "/" + `${isEditMode ? estrutura.uri + "/" + id : estrutura.uri}`,
         params: {},
         data: dadosParaEnviar,
       };
@@ -218,7 +218,7 @@ const CadastroTipoAtendimento = () => {
     try {
       const body = {
         metodo: "get",
-        uri: "/prae/" + estrutura.uri + "/" + item,
+        uri: "/" + estrutura.uri + "/" + item,
         params: {},
         data: item,
       };

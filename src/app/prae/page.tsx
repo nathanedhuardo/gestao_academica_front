@@ -15,6 +15,9 @@ import {
   Schedule,
   AccountBalance,
   Assignment,
+  Book,
+  Diversity3,
+  Groups2,
 } from "@mui/icons-material";
 import Cabecalho from "@/components/Layout/Interno/Cabecalho";
 import ModuloCard from "@/components/Layout/Interno/ModuloCard";
@@ -71,7 +74,7 @@ export default function PraeHome() {
     try {
       const body = {
         metodo: "get",
-        uri: "/prae/estudantes/current",
+        uri: "/estudantes/current",
         params: {},
       };
       const response = await generica(body);
@@ -216,6 +219,39 @@ export default function PraeHome() {
       corHover: "hover:bg-red-600",
       disponivel: true,
       roles: ["administrador", "gestor"],
+    },
+    {
+      id: "cursos",
+      titulo: "Cursos",
+      descricao: "Gerencie os cursos da universidade",
+      icone: <Book className="w-8 h-8" />,
+      rota: "/prae/cursos",
+      cor: "bg-indigo-600",
+      corHover: "hover:bg-indigo-700",
+      disponivel: true,
+      roles: ["administrador", "gestor"],
+    },
+    {
+      id: "etnia",
+      titulo: "Tipo de Etnia",
+      descricao: "Gerencie os tipos de etnia cadastrados",
+      icone: <Diversity3 className="w-8 h-8" />,
+      rota: "/prae/etnia",
+      cor: "bg-pink-500",
+      corHover: "hover:bg-pink-600",
+      disponivel: true,
+      roles: ["administrador", "gestor"],
+    },
+    {
+      id: "usuarios",
+      titulo: "Usuários",
+      descricao: "Gerencie os usuários do sistema",
+      icone: <Groups2 className="w-8 h-8" />,
+      rota: "/prae/usuarios",
+      cor: "bg-cyan-600",
+      corHover: "hover:bg-cyan-700",
+      disponivel: true,
+      roles: ["administrador"],
     },
   ];
 

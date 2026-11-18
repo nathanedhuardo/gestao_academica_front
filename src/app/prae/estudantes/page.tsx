@@ -42,7 +42,7 @@ const PageLista = () => {
     try {
       let body = {
         metodo: 'get',
-        uri: '/prae/estudantes',
+        uri: '/estudantes',
         //+ '/page',
         params: params != null ? params : { size: 10, page: 0 },
         data: {}

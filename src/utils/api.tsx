@@ -163,6 +163,7 @@ export async function genericaMultiForm({
   });
 }
 
+
 /**
  * Use for public auth endpoints (signup, recover password)
  */
@@ -171,24 +172,35 @@ export async function genericaApiAuth({
   uri,
   params = {},
   data = {},
-  contentType = 'application/json',
+  contentType,
   responseType = 'json'
 }: ApiParams) {
   try {
+    const isFormData = data instanceof FormData;
+
+    const headers: Record<string, string> = {};
+
+    // Só define Content-Type manualmente quando não for FormData
+    if (!isFormData) {
+      headers['Content-Type'] = contentType || 'application/json';
+    }
+
     const response = await axios({
       method: metodo,
-      url: `${BASE_URL}/auth${uri}`,
+      url: `${BASE_URL}${uri}`,
       params,
       data,
-      headers: { 'Content-Type': contentType },
+      headers,
       responseType,
       withCredentials: true,
     });
+
     return response;
   } catch (error: any) {
     return handleApiError(error);
   }
 }
+
 
 
 export { genericaApiAuth as authApi };

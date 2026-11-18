@@ -122,7 +122,7 @@ const PageLista = () => {
       let body = {
         metodo: "get",
         uri:
-          "/prae/" +
+          "/" +
           estrutura.uri +
           (isProfissional ? "/profissional" : "/estudante"),
         params: params != null ? params : { size: 10, page: 0 },
@@ -312,7 +312,7 @@ const PageLista = () => {
     try {
       const body = {
         metodo: "patch",
-        uri: `/prae/${estrutura.uri}/${item.id}/modalidade`,
+        uri: `/${estrutura.uri}/${item.id}/modalidade`,
         params: {},
         data: {
           id: item.id,
@@ -567,7 +567,7 @@ const PageLista = () => {
     try {
       const body = {
         metodo: "post",
-        uri: `/prae/${estrutura.uri}/${item.id}/cancelar`,
+        uri: `/${estrutura.uri}/${item.id}/cancelar`,
         params: {},
         data: {
           id: item.id,

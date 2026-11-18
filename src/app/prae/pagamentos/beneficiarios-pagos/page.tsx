@@ -9,7 +9,7 @@ import { toast } from 'react-toastify';
 
 const estrutura: any = {
 
-    uri: "/prae/pagamento",
+    uri: "/pagamento",
 
     cabecalho: {
         titulo: "Beneficiários Pagos",

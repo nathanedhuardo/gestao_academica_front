@@ -13,7 +13,8 @@ import {
   EventAvailable,
   EventBusy,
   Category,
-  Work
+  Work,
+  Book
 } from "@mui/icons-material";
 import { InternalLayoutConfig } from "@/types/InternalLayoutConf";
 
@@ -58,6 +59,24 @@ export default function PraeLayout({ children }: { children: React.ReactNode }) 
           route: "/home",
           icon: <Home fontSize="small" className="text-white" />,
           roles: ["administrador", "gestor", "tecnico", "aluno", "visitante", "professor"],
+        },
+        {
+          label: "Cursos",
+          route: "/prae/cursos",
+          icon: <Book fontSize="small" className="text-white" />,
+          roles: ["administrador", "gestor"],
+        },
+        {
+          label: "Tipo de Etnia",
+          route: "/prae/etnia",
+          icon: <Diversity3 fontSize="small" className="text-white" />,
+          roles: ["administrador", "gestor"],
+        },
+        {
+          label: "Usuários",
+          route: "/prae/usuarios",
+          icon: <Groups2 fontSize="small" className="text-white" />,
+          roles: ["administrador"],
         },
         {
           label: "Gerenciar Estudantes",

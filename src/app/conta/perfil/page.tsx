@@ -50,7 +50,7 @@ const PagePerfil = () => {
 
       const baseResponse = await generica({
         metodo: "get",
-        uri: "/auth/usuario/current",
+        uri: "/usuario/current",
         data: {}
       });
 
@@ -261,7 +261,7 @@ const PagePerfil = () => {
     else if (auth.isAluno()) { tipo = "aluno"; userId = "current"; };
     const response = await generica({
       metodo: "get",
-      uri: `/auth/${tipo}/${userId}`,
+      uri: `/${tipo}/${userId}`,
       data: {}
     });
     console.log("aqui", tipo, userId);
@@ -300,7 +300,7 @@ const PagePerfil = () => {
 
       const response = await generica({
         metodo: "patch",
-        uri: `/auth/usuario`,
+        uri: `/usuario`,
         data: payload,
       });
 

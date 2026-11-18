@@ -146,7 +146,7 @@ const cadastro = () => {
       const body = {
         metodo: `${isEditMode ? "patch" : "post"}`,
         uri:
-          "/prae/" +
+          "/" +
           `${isEditMode ? estrutura.uri + "/" + item.id : estrutura.uri}`,
         params: {},
         data: itemCorrigido,
@@ -202,7 +202,7 @@ const cadastro = () => {
     try {
       const body = {
         metodo: "get",
-        uri: "/prae/" + estrutura.uri + "/" + item,
+        uri: "/" + estrutura.uri + "/" + item,
         params: {},
         data: item,
       };
@@ -233,7 +233,7 @@ const cadastro = () => {
         try {
           const body = {
             metodo: "get",
-            uri: `/prae/auxilio/${dadosPreenchidos.auxilioId}`,
+            uri: `/beneficio/${dadosPreenchidos.auxilioId}`,
             params: {},
           };
           const response = await generica(body);

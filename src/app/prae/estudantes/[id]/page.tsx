@@ -359,7 +359,7 @@ const cadastro = () => {
     try {
       let body = {
         metodo: "get",
-        uri: "/auth/aluno/current",
+        uri: "/estudantes/current",
         params: params != null ? params : { size: 25, page: 0 },
         data: {},
       };
@@ -551,7 +551,7 @@ const cadastro = () => {
       console.log(dataToSend)
       const body = {
         metodo: isEditMode ? "patch" : "post",
-        uri: "/prae/" + estrutura.uri,
+        uri: "/" + estrutura.uri,
         params: {},
         data: dataToSend,
       };
@@ -584,7 +584,7 @@ const cadastro = () => {
       const body = {
         metodo: `${dadosPreenchidos?.dadosBancarios ? "patch" : "post"}`,
         uri:
-          "/prae/" +
+          "/" +
           `${dadosPreenchidos?.dadosBancarios ? estruturaDadosBancarios.uri + "/" + item.id : estruturaDadosBancarios.uri + "/" + dadosPreenchidos.id}`,
         params: {},
         data: dataToSend,
@@ -630,9 +630,9 @@ const cadastro = () => {
     try {
       let uri;
       if (auth.isAluno()) {
-        uri = "/prae/estudantes/current";
+        uri = "/estudantes/current";
       } else {
-        uri = `/prae/${estrutura.uri}/${item}`;
+        uri = `/${estrutura.uri}/${item}`;
       }
 
       const body = {

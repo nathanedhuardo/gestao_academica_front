@@ -60,15 +60,15 @@ export default function HomePage() {
     localStorage.setItem("pinnedModules", JSON.stringify(pinnedModules));
   }, [pinnedModules]);
 
-  // Lista de módulos (pode vir de uma API)
+  // Lista de módulos disponíveis (módulo PRAE centraliza governança após simplificação arquitetural)
   const allModules = [
-    {
+    /* {
       id: "gestao-acesso",
       name: "Gestão de Acesso",
       route: "/gestao-acesso",
       description: "Acesse o módulo de Gestão de Acesso",
       image: "/assets/brasaoUfapeCol.png",
-    },
+    }, */
     {
       id: "prae",
       name: "Prae",

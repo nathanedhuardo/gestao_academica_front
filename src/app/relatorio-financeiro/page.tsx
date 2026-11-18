@@ -437,7 +437,7 @@ const PageLista = () => {
       // Buscar relatório financeiro
       const relatorioBody = {
         metodo: "get",
-        uri: "/prae/beneficio/relatorio/financeiro",
+        uri: "/beneficio/relatorio/financeiro",
         params,
         data: {},
         withCredentials: false
@@ -474,7 +474,7 @@ const PageLista = () => {
     try {
       const response = await generica({
         metodo: "get",
-        uri: "/prae/tipo-beneficio",
+        uri: "/tipo-beneficio",
         params: {},
         data: {},
       });

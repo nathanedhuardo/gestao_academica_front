@@ -140,7 +140,7 @@ const PageLista = () => {
     try {
       const response = await generica({
         metodo: "get",
-        uri: "/prae/beneficio/pendentes",
+        uri: "/beneficio/pendentes",
         params: params || {},
         data: {},
       });
@@ -234,7 +234,7 @@ const PageLista = () => {
       try {
         const response = await generica({
           metodo: "delete",
-          uri: `/prae/${estrutura.uri}/${item.id}`,
+          uri: `/${estrutura.uri}/${item.id}`,
           params: {},
           data: {},
         });

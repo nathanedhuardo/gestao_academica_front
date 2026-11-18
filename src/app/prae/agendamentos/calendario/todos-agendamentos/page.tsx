@@ -72,7 +72,7 @@ const PageLista = () => {
     try {
       let body = {
         metodo: 'get',
-        uri: '/prae/' + estrutura.uri,
+        uri: '/' + estrutura.uri,
         params: params != null ? params : { size: 10, page: 0 },
         data: {}
       };
@@ -129,7 +129,7 @@ const PageLista = () => {
       try {
         const body = {
           metodo: 'post',
-          uri: '/prae/' + estrutura.uri + '/' + item.id + '/cancelar',
+          uri: '/' + estrutura.uri + '/' + item.id + '/cancelar',
           params: {},
           data: {}
         };

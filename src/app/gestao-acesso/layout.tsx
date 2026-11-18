@@ -54,12 +54,27 @@ export default function EfrotasLayout({ children }: { children: React.ReactNode 
           icon: <House fontSize="small" className="text-white" />,
           roles: ["administrador", "gestor", "tecnico", "professor", "aluno", "visitante"],
         },
+        // --- Funcionalidades migradas para o módulo PRAE ---
         {
           label: "Cursos",
-          route: "/gestao-acesso/cursos",
+          route: "/prae/cursos",
           icon: <Book fontSize="small" className="text-white" />,
+          roles: ["administrador", "gestor"],
+        },
+        {
+          label: "Tipo de Etnia",
+          route: "/prae/etnia",
+          icon: <Diversity3 fontSize="small" className="text-white" />,
+          roles: ["administrador", "gestor"],
+        },
+        {
+          label: "Usuários",
+          route: "/prae/usuarios",
+          icon: <Groups2 fontSize="small" className="text-white" />,
           roles: ["administrador"],
         },
+        // --- Funcionalidades desativadas na simplificação da arquitetura ---
+        /*
         {
           label: "Minhas Solicitações",
           route: "/gestao-acesso/solicitacoes",
@@ -90,18 +105,7 @@ export default function EfrotasLayout({ children }: { children: React.ReactNode 
           icon: <Summarize fontSize="small" className="text-white" />,
           roles: ["gestor"]
         },
-        {
-          label: "Usuários",
-          route: "/gestao-acesso/usuarios",
-          icon: <Groups2 fontSize="small" className="text-white" />,
-          roles: ["administrador"],
-        },
-        {
-          label: "Tipo de Etnia",
-          route: "/gestao-acesso/etnia",
-          icon: <Diversity3 fontSize="small" className="text-white" />,
-          roles: ["administrador", "gestor"],
-        },
+        */
       ],
     },
   };

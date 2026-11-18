@@ -62,7 +62,7 @@ const PageNotificacoes = () => {
 
       const response = await generica({
         metodo: "get",
-        uri: "/auth/notificacoes/historico",
+        uri: "/notificacoes/historico",
         params: { page: pageNum, size: 10 },
       });
 
@@ -89,7 +89,7 @@ const PageNotificacoes = () => {
     try {
       await generica({
         metodo: "delete",
-        uri: `/auth/notificacoes/${id}/lida`,
+        uri: `/notificacoes/${id}/lida`,
       });
       setNotifications((prev) => prev.filter((n) => n.id !== id));
     } catch {
@@ -102,7 +102,7 @@ const PageNotificacoes = () => {
     try {
       await generica({
         metodo: "delete",
-        uri: "/auth/notificacoes/limpar-todas",
+        uri: "/notificacoes/limpar-todas",
       });
       setNotifications([]);
       setIsLastPage(true);

@@ -6,7 +6,7 @@ const BASE =
 export class AuthService {
   static async login(email: string, password: string): Promise<void> {
     const params = new URLSearchParams({ email, senha: password });
-    const res = await fetch(`${BASE}/auth/login`, {
+    const res = await fetch(`${BASE}/login`, {
       method: 'POST',
       credentials: 'include',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -27,8 +27,8 @@ export class AuthService {
 
   static async loadSession(): Promise<{ roles: string[]; email?: string }> {
     const [rolesRes, userRes] = await Promise.all([
-      fetch(`${BASE}/auth/roles`, { credentials: 'include' }),
-      fetch(`${BASE}/auth/usuario/current`, { credentials: 'include' }),
+      fetch(`${BASE}/roles`, { credentials: 'include' }),
+      fetch(`${BASE}/usuario/current`, { credentials: 'include' }),
     ]);
     if (!rolesRes.ok) throw new Error('Não conseguiu obter roles');
     const roles = (await rolesRes.json()) as string[];
@@ -37,7 +37,7 @@ export class AuthService {
   }
 
   static async refreshToken(): Promise<boolean> {
-    const res = await fetch(`${BASE}/auth/refresh`, {
+    const res = await fetch(`${BASE}/refresh`, {
       method: 'POST',
       credentials: 'include',
     });
@@ -48,7 +48,7 @@ export class AuthService {
   }
 
   static async logout(): Promise<void> {
-    await fetch(`${BASE}/auth/logout`, {
+    await fetch(`${BASE}/logout`, {
       method: 'POST',
       credentials: 'include',
     });
@@ -57,7 +57,7 @@ export class AuthService {
 
   static async resetPassword(email: string): Promise<any> {
     const params = new URLSearchParams({ email });
-    const res = await fetch(`${BASE}/auth/reset-password`, {
+    const res = await fetch(`${BASE}/reset-password`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: params.toString(),

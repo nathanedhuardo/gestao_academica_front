@@ -22,7 +22,7 @@ export default function Login() {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
   useEffect(() => {
-    if (isAuthenticated) router.push("/home");
+    if (isAuthenticated) router.push("/prae");
     const emails = JSON.parse(localStorage.getItem("sgu_saved_emails") || "[]");
     setSavedEmails(emails);
     if (emails.length === 0) {
